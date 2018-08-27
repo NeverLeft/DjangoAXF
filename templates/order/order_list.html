@@ -1,0 +1,16 @@
+{% extends 'base/base_order.html' %}
+{% block content %}
+    <div class="container">
+        <ul>
+            {% for order in orders %}
+                <li>
+                    <a href="{% url 'axf:orderdetail' %}?orderid={{ order.id }}">
+                        <p>订单编号：{{ order.id }}</p>
+                        <img src="{{ order.ordergoods_set.first.o_goods.productimg }}" alt="">
+                    </a>
+                </li>            
+            {% endfor %}
+            
+        </ul>
+    </div>
+{% endblock %}
